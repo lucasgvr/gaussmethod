@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss Method</title>
+</head>
+<body>
+    <div>
+        <p>Ordem: <input id="cols" type="number"></p>
+    </div>
+
+    <div class="nav justify-content-center">
+        <button type="button" class="btn btn-success" onclick="getFields()">Calcular</button>
+        <button type="button" class="btn btn-success" onclick="addFields()">Gerar Inputs</button>
+        <button type="button" class="btn btn-success" onclick="window.location.href=window.location.href">Limpar</button>
+        <p id="resultadosFunc"></p>
+    </div>
+
+    <div id="container"></div>
+
+    <h3>Matriz A:</h3>
+    <div id="containerResult"></div>
+
+    <h3>Raízes:</h3>
+    <div id="output"></div>
+
+    <h3>Matriz de Permutação:</h3>
+    <div id="output2"></div>
+
+    <h3>Matriz L:</h3>
+    <div id="output3"></div>
+
+    <h3>Matriz U:</h3>
+    <div id="output4"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
