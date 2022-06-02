@@ -1,0 +1,110 @@
+:root {
+    --purple: #835AFD;
+    --pink-dark: #E559F9;
+    --pink-light: #D67EE2;
+
+    --grey: #41414C;
+    --orange: #F1972C;
+    --red: #ff5252;
+    --red-100: #FFBABA;
+    --green:  #00A36C ;
+    --green-100: #AFE1AF;
+    --white: #FFFFFF;
+    
+    --text-title: #5A5A66;
+    --text-body: #a8a8b3;
+    
+    --background: #E5E5E5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    @media (max-width: 1080px) {
+        font-size: 93.75%;
+    }
+
+    @media (max-width: 720px) {
+        font-size: 87.5%;
+    }
+}
+
+body {
+    background: var(--grey);
+    -webkit-font-smoothing: antialiased;
+    color: var(--background);
+}
+
+body, input, textarea, button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    font-weight: 600;
+}
+
+button {
+    cursor: pointer;
+}
+
+[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.orderInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.orderInput input {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--orange);
+    width: 28rem;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.buttonWrapper button {
+    width: 8rem;
+    background-color: var(--orange);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 0.8rem;
+}
+
+#container {
+    gap: 1rem;
+}
+
+#container input {
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--orange);
+}
+
+.containerAll {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}

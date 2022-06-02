@@ -1,6 +1,4 @@
 const container = document.getElementById("container")
-const containerResult = document.getElementById("containerResult")
-const containerResultPermut = document.getElementById("containerResultPermut")
 
 function addFields(){
     var cols = document.getElementById("cols").value
@@ -8,11 +6,8 @@ function addFields(){
     cols++
 
     container.style.setProperty('display', 'grid')
-    containerResult.style.setProperty('display', 'grid')
     container.style.setProperty('grid-template-rows', `repeat(${rows}, 1fr)`)
     container.style.setProperty('grid-template-columns', `repeat(${cols}, 1fr)`)
-    containerResult.style.setProperty('grid-template-rows', `repeat(${rows}, 1fr)`)
-    containerResult.style.setProperty('grid-template-columns', `repeat(${cols}, 1fr)`)
 
     for (i = 0; i < (rows * cols); i++) { 
         var cell = document.createElement("input")
@@ -49,9 +44,6 @@ function generatedResult(matriz, matrizPermuta, m, matrizU) {
     var rows = cols
     cols++
     
-    containerResult.style.setProperty('grid-template-rows', `repeat(${rows}, 1fr)`)
-    containerResult.style.setProperty('grid-template-columns', `repeat(${cols}, 1fr)`)
-    
     var cellResult
     var resultValue
     for(var l = 0; l < rows; l++) {        
@@ -61,7 +53,6 @@ function generatedResult(matriz, matrizPermuta, m, matrizU) {
             cellResult.type = "number"
             resultValue = matriz[l][c]
             cellResult.innerText= (resultValue)
-            containerResult.appendChild(cellResult).className = "grid-item-result"
         }
     }
 
@@ -104,8 +95,8 @@ function calculateMatrix(arrayB) {
 
     var i = document.getElementById("cols").value
     i = parseInt(i)
-    j = i // quantidade de colunas
-    i = i-1 // quantidade de linhas
+    j = i 
+    i = i-1 
 
     var x = []
     var m =[]
@@ -114,7 +105,6 @@ function calculateMatrix(arrayB) {
     var arrayA = []
     var arrayT = []
 
-    // matrizP, matriz m, matrizL e matrizU
     for(v = 0; v < j * j; v++) {
         arrayA.push(0)
     }
@@ -146,7 +136,6 @@ function calculateMatrix(arrayB) {
         } 
     }
 
-    // primeira coluna 0
     for(l = 0; l < i + 1; l++) {
         if(valor[l][0] == 0) {
             var troca = valor[1]
@@ -159,7 +148,6 @@ function calculateMatrix(arrayB) {
         }
     }
 
-    //conta gauss
     for(var l = 0; l < i; l++) {
         pivo = valor[l][l]
 
@@ -225,23 +213,23 @@ function calculateMatrix(arrayB) {
         }
     }
 
-    var matriz = valor;
-    var matrizPermuta = matrizP;
+    var matriz = valor
+    var matrizPermuta = matrizP
 
-    generatedResult(matriz, matrizPermuta, m, matrizU);
+    generatedResult(matriz, matrizPermuta, m, matrizU)
 
-    for(y = i; y > -1; y--) { // y = ultima linha ate linha 0
-        result = valor[y][j] // linha y , ultima coluna = resultado da funcao
+    for(y = i; y > -1; y--) {
+        result = valor[y][j] 
 
-        for(m = 0; m < j; m++) { // m = valor coluna = todas as colunas menos a "resultado da funcao = a ultima coluna"
-            if(m == y){ 
-                // se a linha for igual a coluna, entao é o valor do x que estamos procurando
-            }else{
+        for(m = 0; m < j; m++) { 
+            if(m == y) { 
+               
+            } else {
                 result = result - valor[y][m]
             }
         }
 
-        x[y] = result/valor[y][y] //dividido pelo valor que multiplica o x que estamos procurando 
+        x[y] = result / valor[y][y]  
 
         for(l = i; l > -1; l--) {
             valor[l][y] = x[y] * valor[l][y]
